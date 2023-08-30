@@ -437,6 +437,6 @@ __d((function(g,r,i,a,m,e,d){Object.defineProperty(e,"__esModule",{value:!0}),e.
 __d((function(g,r,i,a,m,e,d){'use strict';m.exports=function(t){fetch(r(d[0])().url+'open-url',{method:'POST',body:JSON.stringify({url:t})})}}),431,[432]);
 __d((function(g,r,i,a,m,e,d){var l,t,n=r(d[0])(r(d[1]));m.exports=function(){var u;if(void 0===l){var o=n.default.getConstants().scriptURL,s=o.match(/^https?:\/\/.*?\//);l=s?s[0]:null,t=s?o:null}return{url:null!=(u=l)?u:"http://localhost:8081/",fullBundleUrl:t,bundleLoadedFromServer:null!==l}}}),432,[3,175]);
 __d((function(g,r,i,a,m,e,d){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var t=r(d[0])(r(d[1])),l=r(d[0])(r(d[2])),o=r(d[0])(r(d[3])),u=(r(d[0])(r(d[4])),t.default.create({highlight:{fontWeight:'700'}})),n=o.default.select({ios:function(){return(0,r(d[5]).jsxs)(l.default,{children:["Press ",(0,r(d[5]).jsx)(l.default,{style:u.highlight,children:"Cmd + R"})," in the simulator to reload your app's code."]})},default:function(){return(0,r(d[5]).jsxs)(l.default,{children:["Double tap ",(0,r(d[5]).jsx)(l.default,{style:u.highlight,children:"R"})," on your keyboard to reload your app's code."]})}});e.default=n}),433,[3,194,231,17,151,191]);
-__d((function(e,i,m,o,a,l,n){a.exports={name:"mobile",displayName:"mobile"}}),434,[]);
+__d((function(n,d,a,e,f,r,u){f.exports={name:"fundr",displayName:"fundr"}}),434,[]);
 __r(48);
 __r(0);

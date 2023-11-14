@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.app.squareme.fundr"
+    namespace "com.shepherdtutors.app"
     defaultConfig {
-        applicationId "com.app.squareme.fundr"
+        applicationId "com.shepherdtutors.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

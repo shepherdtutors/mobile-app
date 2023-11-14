@@ -30,7 +30,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target "fundr" do
+target "shepherdtutors" do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -50,7 +50,7 @@ target "fundr" do
     :app_path => "#{Pod::Config.instance.installation_root}/..",
   )
 
-  target "fundrTests" do
+  target "shepherdtutorsTests" do
     inherit! :complete
     # Pods for testing
   end

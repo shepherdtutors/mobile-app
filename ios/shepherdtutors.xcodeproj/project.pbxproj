@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* fundrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* fundrTests.m */; };
+		00E356F31AD99517003FC87E /* shepherdtutorsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* shepherdtutorsTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		60689E8CD2519A88B9899D0B /* libPods-fundr-fundrTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 429D2A5B9214A49CA35E676A /* libPods-fundr-fundrTests.a */; };
+		50D51DFF28949FFCF2120EBB /* libPods-shepherdtutors.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E7C99049ED5219C0BF0856B /* libPods-shepherdtutors.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		A7BD07FFC3AA2F26A8F0E9D6 /* libPods-fundr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7385BF5AD3947BB993E90BBE /* libPods-fundr.a */; };
+		C95A8D2BDAE252337E70B4E1 /* libPods-shepherdtutors-shepherdtutorsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 418F1C8817CEBACBF43BF888 /* libPods-shepherdtutors-shepherdtutorsTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,28 +22,28 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = fundr;
+			remoteInfo = shepherdtutors;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* fundrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fundrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* shepherdtutorsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shepherdtutorsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* fundrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fundrTests.m; sourceTree = "<group>"; };
-		04F6874E9585A0D1FC5065F4 /* Pods-fundr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fundr.release.xcconfig"; path = "Target Support Files/Pods-fundr/Pods-fundr.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* fundr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fundr.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = fundr/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = fundr/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = fundr/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = fundr/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = fundr/main.m; sourceTree = "<group>"; };
-		2B69D08D08A16D69FD82CFAF /* Pods-fundr-fundrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fundr-fundrTests.debug.xcconfig"; path = "Target Support Files/Pods-fundr-fundrTests/Pods-fundr-fundrTests.debug.xcconfig"; sourceTree = "<group>"; };
-		429D2A5B9214A49CA35E676A /* libPods-fundr-fundrTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fundr-fundrTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DA909866A6C5E99684B29B3 /* Pods-fundr-fundrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fundr-fundrTests.release.xcconfig"; path = "Target Support Files/Pods-fundr-fundrTests/Pods-fundr-fundrTests.release.xcconfig"; sourceTree = "<group>"; };
-		7385BF5AD3947BB993E90BBE /* libPods-fundr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fundr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = fundr/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* shepherdtutorsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shepherdtutorsTests.m; sourceTree = "<group>"; };
+		0FE00CE41AAC421FD58EB684 /* Pods-shepherdtutors-shepherdtutorsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shepherdtutors-shepherdtutorsTests.debug.xcconfig"; path = "Target Support Files/Pods-shepherdtutors-shepherdtutorsTests/Pods-shepherdtutors-shepherdtutorsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* shepherdtutors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shepherdtutors.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = shepherdtutors/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = shepherdtutors/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = shepherdtutors/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = shepherdtutors/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = shepherdtutors/main.m; sourceTree = "<group>"; };
+		418F1C8817CEBACBF43BF888 /* libPods-shepherdtutors-shepherdtutorsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-shepherdtutors-shepherdtutorsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63477230595222E0D0DD2810 /* Pods-shepherdtutors-shepherdtutorsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shepherdtutors-shepherdtutorsTests.release.xcconfig"; path = "Target Support Files/Pods-shepherdtutors-shepherdtutorsTests/Pods-shepherdtutors-shepherdtutorsTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A85055FAD651445AEFFD9F6 /* Pods-shepherdtutors.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shepherdtutors.debug.xcconfig"; path = "Target Support Files/Pods-shepherdtutors/Pods-shepherdtutors.debug.xcconfig"; sourceTree = "<group>"; };
+		7E7C99049ED5219C0BF0856B /* libPods-shepherdtutors.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-shepherdtutors.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = shepherdtutors/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C120C3CBE6BE016F5688E9C5 /* Pods-shepherdtutors.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shepherdtutors.release.xcconfig"; path = "Target Support Files/Pods-shepherdtutors/Pods-shepherdtutors.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F8AEEACA580695E6564DC130 /* Pods-fundr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fundr.debug.xcconfig"; path = "Target Support Files/Pods-fundr/Pods-fundr.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60689E8CD2519A88B9899D0B /* libPods-fundr-fundrTests.a in Frameworks */,
+				C95A8D2BDAE252337E70B4E1 /* libPods-shepherdtutors-shepherdtutorsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,20 +59,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7BD07FFC3AA2F26A8F0E9D6 /* libPods-fundr.a in Frameworks */,
+				50D51DFF28949FFCF2120EBB /* libPods-shepherdtutors.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* fundrTests */ = {
+		00E356EF1AD99517003FC87E /* shepherdtutorsTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* fundrTests.m */,
+				00E356F21AD99517003FC87E /* shepherdtutorsTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = fundrTests;
+			path = shepherdtutorsTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -83,7 +83,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* fundr */ = {
+		13B07FAE1A68108700A75B9A /* shepherdtutors */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -93,15 +93,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = fundr;
+			name = shepherdtutors;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				7385BF5AD3947BB993E90BBE /* libPods-fundr.a */,
-				429D2A5B9214A49CA35E676A /* libPods-fundr-fundrTests.a */,
+				7E7C99049ED5219C0BF0856B /* libPods-shepherdtutors.a */,
+				418F1C8817CEBACBF43BF888 /* libPods-shepherdtutors-shepherdtutorsTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,9 +116,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* fundr */,
+				13B07FAE1A68108700A75B9A /* shepherdtutors */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* fundrTests */,
+				00E356EF1AD99517003FC87E /* shepherdtutorsTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -131,8 +131,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* fundr.app */,
-				00E356EE1AD99517003FC87E /* fundrTests.xctest */,
+				13B07F961A680F5B00A75B9A /* shepherdtutors.app */,
+				00E356EE1AD99517003FC87E /* shepherdtutorsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,10 +140,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F8AEEACA580695E6564DC130 /* Pods-fundr.debug.xcconfig */,
-				04F6874E9585A0D1FC5065F4 /* Pods-fundr.release.xcconfig */,
-				2B69D08D08A16D69FD82CFAF /* Pods-fundr-fundrTests.debug.xcconfig */,
-				4DA909866A6C5E99684B29B3 /* Pods-fundr-fundrTests.release.xcconfig */,
+				6A85055FAD651445AEFFD9F6 /* Pods-shepherdtutors.debug.xcconfig */,
+				C120C3CBE6BE016F5688E9C5 /* Pods-shepherdtutors.release.xcconfig */,
+				0FE00CE41AAC421FD58EB684 /* Pods-shepherdtutors-shepherdtutorsTests.debug.xcconfig */,
+				63477230595222E0D0DD2810 /* Pods-shepherdtutors-shepherdtutorsTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -151,46 +151,46 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* fundrTests */ = {
+		00E356ED1AD99517003FC87E /* shepherdtutorsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "fundrTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "shepherdtutorsTests" */;
 			buildPhases = (
-				7DE80C4E4615C3F939DD7790 /* [CP] Check Pods Manifest.lock */,
+				CEB561FFAC249FF1353F1648 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				5E2B4F0C3FD52D2CEE94584C /* [CP] Embed Pods Frameworks */,
-				0801617F03F0D3BF65661721 /* [CP] Copy Pods Resources */,
+				220B1833A7084002A5808CD3 /* [CP] Embed Pods Frameworks */,
+				A4935890AE6809E4382E3490 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = fundrTests;
-			productReference = 00E356EE1AD99517003FC87E /* fundrTests.xctest */;
+			name = shepherdtutorsTests;
+			productReference = 00E356EE1AD99517003FC87E /* shepherdtutorsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* fundr */ = {
+		13B07F861A680F5B00A75B9A /* shepherdtutors */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "fundr" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "shepherdtutors" */;
 			buildPhases = (
-				706C96F7FAFF80D9812EEC3A /* [CP] Check Pods Manifest.lock */,
+				8C244DE43419C5F0FB04E07E /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				CF6C26A421DDACA6B6AF3AD5 /* [CP] Embed Pods Frameworks */,
-				FBA736F15EE05DC191FE97B7 /* [CP] Copy Pods Resources */,
+				C1EE76E6FEE8860BC707EDCA /* [CP] Embed Pods Frameworks */,
+				667945A30F443C4020D93C5D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = fundr;
-			productName = fundr;
-			productReference = 13B07F961A680F5B00A75B9A /* fundr.app */;
+			name = shepherdtutors;
+			productName = shepherdtutors;
+			productReference = 13B07F961A680F5B00A75B9A /* shepherdtutors.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -210,7 +210,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "fundr" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "shepherdtutors" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -223,8 +223,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* fundr */,
-				00E356ED1AD99517003FC87E /* fundrTests */,
+				13B07F861A680F5B00A75B9A /* shepherdtutors */,
+				00E356ED1AD99517003FC87E /* shepherdtutorsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,41 +265,41 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		0801617F03F0D3BF65661721 /* [CP] Copy Pods Resources */ = {
+		220B1833A7084002A5808CD3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fundr-fundrTests/Pods-fundr-fundrTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fundr-fundrTests/Pods-fundr-fundrTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fundr-fundrTests/Pods-fundr-fundrTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5E2B4F0C3FD52D2CEE94584C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fundr-fundrTests/Pods-fundr-fundrTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors-shepherdtutorsTests/Pods-shepherdtutors-shepherdtutorsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fundr-fundrTests/Pods-fundr-fundrTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors-shepherdtutorsTests/Pods-shepherdtutors-shepherdtutorsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fundr-fundrTests/Pods-fundr-fundrTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors-shepherdtutorsTests/Pods-shepherdtutors-shepherdtutorsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		706C96F7FAFF80D9812EEC3A /* [CP] Check Pods Manifest.lock */ = {
+		667945A30F443C4020D93C5D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors/Pods-shepherdtutors-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors/Pods-shepherdtutors-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors/Pods-shepherdtutors-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C244DE43419C5F0FB04E07E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -314,14 +314,48 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-fundr-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-shepherdtutors-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7DE80C4E4615C3F939DD7790 /* [CP] Check Pods Manifest.lock */ = {
+		A4935890AE6809E4382E3490 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors-shepherdtutorsTests/Pods-shepherdtutors-shepherdtutorsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors-shepherdtutorsTests/Pods-shepherdtutors-shepherdtutorsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors-shepherdtutorsTests/Pods-shepherdtutors-shepherdtutorsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1EE76E6FEE8860BC707EDCA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors/Pods-shepherdtutors-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors/Pods-shepherdtutors-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shepherdtutors/Pods-shepherdtutors-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEB561FFAC249FF1353F1648 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -336,45 +370,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-fundr-fundrTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-shepherdtutors-shepherdtutorsTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CF6C26A421DDACA6B6AF3AD5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fundr/Pods-fundr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fundr/Pods-fundr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fundr/Pods-fundr-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FBA736F15EE05DC191FE97B7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fundr/Pods-fundr-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fundr/Pods-fundr-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fundr/Pods-fundr-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -403,7 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* fundrTests.m in Sources */,
+				00E356F31AD99517003FC87E /* shepherdtutorsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +421,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* fundr */;
+			target = 13B07F861A680F5B00A75B9A /* shepherdtutors */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -429,14 +429,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B69D08D08A16D69FD82CFAF /* Pods-fundr-fundrTests.debug.xcconfig */;
+			baseConfigurationReference = 0FE00CE41AAC421FD58EB684 /* Pods-shepherdtutors-shepherdtutorsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = fundrTests/Info.plist;
+				INFOPLIST_FILE = shepherdtutorsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,19 +448,19 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.squareme.fundr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shepherdtutors.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fundr.app/fundr";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shepherdtutors.app/shepherdtutors";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DA909866A6C5E99684B29B3 /* Pods-fundr-fundrTests.release.xcconfig */;
+			baseConfigurationReference = 63477230595222E0D0DD2810 /* Pods-shepherdtutors-shepherdtutorsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = fundrTests/Info.plist;
+				INFOPLIST_FILE = shepherdtutorsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -472,22 +472,22 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.squareme.fundr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shepherdtutors.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fundr.app/fundr";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shepherdtutors.app/shepherdtutors";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8AEEACA580695E6564DC130 /* Pods-fundr.debug.xcconfig */;
+			baseConfigurationReference = 6A85055FAD651445AEFFD9F6 /* Pods-shepherdtutors.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = fundr/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = fundr;
+				INFOPLIST_FILE = shepherdtutors/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = shepherdtutors;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,8 +498,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.squareme.fundr;
-				PRODUCT_NAME = fundr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shepherdtutors.app;
+				PRODUCT_NAME = shepherdtutors;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -508,13 +508,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04F6874E9585A0D1FC5065F4 /* Pods-fundr.release.xcconfig */;
+			baseConfigurationReference = C120C3CBE6BE016F5688E9C5 /* Pods-shepherdtutors.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = fundr/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = fundr;
+				INFOPLIST_FILE = shepherdtutors/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = shepherdtutors;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,8 +525,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.app.squareme.fundr;
-				PRODUCT_NAME = fundr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shepherdtutors.app;
+				PRODUCT_NAME = shepherdtutors;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -674,7 +674,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "fundrTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "shepherdtutorsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -683,7 +683,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "fundr" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "shepherdtutors" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -692,7 +692,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "fundr" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "shepherdtutors" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

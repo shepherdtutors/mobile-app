@@ -15,7 +15,6 @@ import {
   View,
   ActivityIndicator,
   Linking,
-  Text,
 } from 'react-native';
 
 import {defaultTo} from 'lodash';
@@ -40,7 +39,6 @@ import {RootStackParamList} from './app/types';
 import {applyStyles} from './app/assets/styles';
 
 import RootStackNavigtor from './app/routes';
-import SplashScreen from './app/splashScreen';
 // import {SquaremeCustomToast} from './app/components/SquaremeCustomToast';
 
 export type MainNavParamList = {
@@ -95,12 +93,12 @@ const App: React.FC<RootStackParamList> = () => {
         linkingSubscription.remove();
       };
     },
-    getPathFromState(state: any, config: any) {
+    getPathFromState(state, config) {
       const path = getPathFromState(state, config);
 
       return path;
     },
-    getStateFromPath: (path: any, options: any) => {
+    getStateFromPath: (path, options) => {
       const routeState = getStateFromPath(path, options);
       return routeState;
     },
@@ -208,9 +206,9 @@ const App: React.FC<RootStackParamList> = () => {
     },
   ];
 
-  if (splash) {
-    return <SplashScreen />;
-  }
+  // if (splash) {
+  //   return <Splash />;
+  // }
 
   return (
     <NavigationContainer

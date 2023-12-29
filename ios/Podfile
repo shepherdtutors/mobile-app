@@ -26,6 +26,7 @@ flipper_config = (ENV["NO_FLIPPER"] || "1") == "1" ? FlipperConfiguration.disabl
 
 use_frameworks! :linkage => :static
 $RNFirebaseAsStaticFramework = true
+$RNFirebaseAnalyticsWithoutAdIdSupport = true
 
 linkage = ENV["USE_FRAMEWORKS"]
 if linkage != nil

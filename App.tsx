@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   NavigationContainer,
   DefaultTheme,
@@ -8,18 +8,20 @@ import {
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RouteProp} from '@react-navigation/core';
-// import analytics from '@react-native-firebase/analytics';
+import {ToastProvider} from 'react-native-toast-notifications';
+import analytics from '@react-native-firebase/analytics';
 import {
   Platform,
   StatusBar,
   View,
   ActivityIndicator,
   Linking,
+  StyleSheet,
 } from 'react-native';
 
 import {defaultTo} from 'lodash';
 
-import {SQUAREME_DEEPLINK_URI} from '@env';
+import {SHEPHERD_DEEPLINK_URI, SHEPHERD_SENTRY_DSN} from '@env';
 
 import useCustomNavigator, {
   navigationRef,
@@ -30,7 +32,6 @@ import useCustomNavigator, {
 
 import StyleGuide from './app/assets/style-guide';
 import {useAuth} from './app/context';
-// import {scaledSize} from './app/assets/style-guide/typography';
 // import {initializeFB} from './app/services/notifications';
 
 import {handlePrintToConsole} from './app/utils';
@@ -39,7 +40,13 @@ import {RootStackParamList} from './app/types';
 import {applyStyles} from './app/assets/styles';
 
 import RootStackNavigtor from './app/routes';
+import {scaledSize} from './app/assets/style-guide/typography';
 // import {SquaremeCustomToast} from './app/components/SquaremeCustomToast';
+import * as Sentry from '@sentry/react-native';
+
+Sentry.init({
+  dsn: SHEPHERD_SENTRY_DSN,
+});
 
 export type MainNavParamList = {
   HomeTab: undefined;
@@ -70,10 +77,10 @@ export type ScreenProps<T extends keyof RootStackParamList> = {
 const App: React.FC<RootStackParamList> = () => {
   const {routeNameRef} = useCustomNavigator();
   const {chosenTheme} = useAuth();
-  const [splash, setSplash] = React.useState(true);
+  const [splash, setSplash] = useState(true);
 
   const linking = {
-    prefixes: [defaultTo(SQUAREME_DEEPLINK_URI, 'shepherd-app://')],
+    prefixes: [defaultTo(SHEPHERD_DEEPLINK_URI, 'shepherd-app://')],
     async getInitialURL() {
       // As a fallback, you may want to do the default deep link handling
       const url = await Linking.getInitialURL();
@@ -173,6 +180,7 @@ const App: React.FC<RootStackParamList> = () => {
 
   useEffect(() => {
     // initializeFB();
+    analytics().logAppOpen();
   }, []);
 
   useEffect(() => {
@@ -229,12 +237,16 @@ const App: React.FC<RootStackParamList> = () => {
         const currentRouteName = navigationRef.getCurrentRoute()?.name;
 
         if (previousRouteName !== currentRouteName) {
+          await analytics().logScreenView({
+            screen_name: currentRouteName,
+            screen_class: currentRouteName,
+          });
         }
         //@ts-ignore
         routeNameRef.current = currentRouteName;
       }}
       theme={appTheme[chosenTheme]}>
-      {/* <ToastProvider
+      <ToastProvider
         placement="top"
         duration={5000}
         animationType="slide-in"
@@ -245,21 +257,22 @@ const App: React.FC<RootStackParamList> = () => {
         normalColor={StyleGuide.Colors.shades.grey[300]}
         textStyle={styles.toastFontSize}
         style={{elevation: 10}}
-        renderType={{
-          custom_toast: toast => <SquaremeCustomToast toast={toast} />,
-          custom_error_toast: toast => (
-            <SquaremeCustomToast toast={toast} variant="error" />
-          ),
-          custom_success_toast: toast => (
-            <SquaremeCustomToast toast={toast} variant="success" />
-          ),
-
-          custom_attention_toast: toast => (
-            <SquaremeCustomToast toast={toast} variant="warning" />
-          ),
-        }}
-        swipeEnabled={true}> */}
-      {/* <UserInactivity
+        renderType={
+          {
+            // custom_toast: toast => <SquaremeCustomToast toast={toast} />,
+            // custom_error_toast: toast => (
+            //   <SquaremeCustomToast toast={toast} variant="error" />
+            // ),
+            // custom_success_toast: toast => (
+            //   <SquaremeCustomToast toast={toast} variant="success" />
+            // ),
+            // custom_attention_toast: toast => (
+            //   <SquaremeCustomToast toast={toast} variant="warning" />
+            // ),
+          }
+        }
+        swipeEnabled={true}>
+        {/* <UserInactivity
           isActive={userIsActive}
           timeForInactivity={
             toNumber(USER_INACTIVITY_MINUTES) * toNumber(SECONDS) * 1000
@@ -270,23 +283,23 @@ const App: React.FC<RootStackParamList> = () => {
             }
           }}
           style={{flex: 1}}> */}
-      <RootStackNavigtor />
-      {/* </UserInactivity> */}
-      {/* </ToastProvider> */}
+        <RootStackNavigtor />
+        {/* </UserInactivity> */}
+      </ToastProvider>
     </NavigationContainer>
   );
 };
 
-// const styles = StyleSheet.create({
-//   toastFontSize: {
-//     fontSize: scaledSize(12),
-//     // fontFamily: 'DMSans-Regular',
-//   },
-//   imageStyle: {
-//     width: undefined,
-//     height: undefined,
-//     flex: 1,
-//   },
-// });
+const styles = StyleSheet.create({
+  toastFontSize: {
+    fontSize: scaledSize(12),
+    fontFamily: 'Satoshi-Regular',
+  },
+  imageStyle: {
+    width: undefined,
+    height: undefined,
+    flex: 1,
+  },
+});
 
 export default App;

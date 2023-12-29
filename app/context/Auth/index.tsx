@@ -10,10 +10,11 @@ import React, {
 import {Alert} from 'react-native';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import {isEqual, isEmpty, isNil, toInteger, defaultTo} from 'lodash';
-import {SQUAREME_ONESIGNAL_LOGGEDIN_TRIGGER} from '@env';
+import analytics from '@react-native-firebase/analytics';
 
 import useCustomNavigator from '../../hooks/useCustomNavigator';
 import {handlePrintToConsole} from '../../utils';
+import {SHEPHERD_ONESIGNAL_LOGGEDIN_TRIGGER} from '@env';
 
 export type User = {
   avatarUrl?: string;
@@ -35,6 +36,7 @@ export type User = {
 };
 
 export function useProvideAuth() {
+  const defaultAppAnalytics = analytics();
   const {navigate} = useCustomNavigator();
   const [ready] = useState(true);
   const [userToken, setUserToken] = useState<null | string>(null);
@@ -47,7 +49,7 @@ export function useProvideAuth() {
   const [userIsActive, setUserIsActive] = useState<boolean>();
 
   const onesignal_loggedin_trigger = defaultTo(
-    SQUAREME_ONESIGNAL_LOGGEDIN_TRIGGER,
+    SHEPHERD_ONESIGNAL_LOGGEDIN_TRIGGER,
     'userLoggedIn',
   );
 
@@ -63,6 +65,10 @@ export function useProvideAuth() {
       } else {
         setUserToken(null);
       }
+
+      await defaultAppAnalytics.logLogin({
+        method: 'regular',
+      });
     } catch (e) {
     } finally {
     }
@@ -75,6 +81,9 @@ export function useProvideAuth() {
       } else {
         setUserToken(null);
       }
+      await defaultAppAnalytics.logSignUp({
+        method: 'regular',
+      });
     } catch (e) {}
   };
 
@@ -100,7 +109,6 @@ export function useProvideAuth() {
           callback();
         }
         await EncryptedStorage.setItem('@welcome_screen', 'passed');
-        await EncryptedStorage.setItem('@viewed_refer&earn', 'passed');
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -172,11 +180,12 @@ export function useProvideAuth() {
     } catch (e) {}
   };
 
-  const handleSetUser = (fetchUser: User) => {
+  const handleSetUser = async (fetchUser: User) => {
     if (isEqual(fetchUser, user)) {
       return;
     }
     setUser(fetchUser);
+    await defaultAppAnalytics.setUserProperties(fetchUser as any);
   };
 
   const saveFetchedUser = async (showLoading: boolean = true) => {

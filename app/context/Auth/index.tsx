@@ -7,14 +7,19 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import {Alert} from 'react-native';
+import {Alert, Platform} from 'react-native';
 import EncryptedStorage from 'react-native-encrypted-storage';
-import {isEqual, isEmpty, isNil, toInteger, defaultTo} from 'lodash';
+import {isEqual, isEmpty, isNil, defaultTo} from 'lodash';
 import analytics from '@react-native-firebase/analytics';
-
+import crashlytics from '@react-native-firebase/crashlytics';
+import inAppMessaging from '@react-native-firebase/in-app-messaging';
+import remoteConfig from '@react-native-firebase/remote-config';
+import VersionCheck from 'react-native-version-check';
 import useCustomNavigator from '../../hooks/useCustomNavigator';
+
+import {SHEPHERD_ONESIGNAL_LOGGEDIN_TRIGGER, FORCE_APP_UPDATE} from '@env';
+
 import {handlePrintToConsole} from '../../utils';
-import {SHEPHERD_ONESIGNAL_LOGGEDIN_TRIGGER} from '@env';
 
 export type User = {
   avatarUrl?: string;
@@ -33,10 +38,12 @@ export type User = {
   handleSetUserIsActive: () => void;
   showAlert: boolean;
   userTag?: string;
+  id: string | number;
 };
 
 export function useProvideAuth() {
   const defaultAppAnalytics = analytics();
+
   const {navigate} = useCustomNavigator();
   const [ready] = useState(true);
   const [userToken, setUserToken] = useState<null | string>(null);
@@ -69,7 +76,8 @@ export function useProvideAuth() {
       await defaultAppAnalytics.logLogin({
         method: 'regular',
       });
-    } catch (e) {
+    } catch (e: any) {
+      crashlytics().recordError(e);
     } finally {
     }
   };
@@ -84,7 +92,9 @@ export function useProvideAuth() {
       await defaultAppAnalytics.logSignUp({
         method: 'regular',
       });
-    } catch (e) {}
+    } catch (e: any) {
+      crashlytics().recordError(e);
+    }
   };
 
   const clearUserSession = useCallback(
@@ -100,6 +110,7 @@ export function useProvideAuth() {
         }
       } catch (e) {
         handlePrintToConsole('SignOut error ========> ', [e]);
+        crashlytics().recordError(e);
       } finally {
         setShowAlert(false);
         setUserToken(null);
@@ -109,6 +120,9 @@ export function useProvideAuth() {
           callback();
         }
         await EncryptedStorage.setItem('@welcome_screen', 'passed');
+        await defaultAppAnalytics.logEvent('logout', {
+          id: user?.id,
+        });
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -186,6 +200,10 @@ export function useProvideAuth() {
     }
     setUser(fetchUser);
     await defaultAppAnalytics.setUserProperties(fetchUser as any);
+    await defaultAppAnalytics.setUserId(user?.id as string);
+    await crashlytics().setUserId(user?.id as string);
+    await crashlytics().setAttributes(fetchUser as any);
+    inAppMessaging().setMessagesDisplaySuppressed(false);
   };
 
   const saveFetchedUser = async (showLoading: boolean = true) => {
@@ -195,40 +213,6 @@ export function useProvideAuth() {
       await signOut();
     } finally {
       setIsFetchingUser(false);
-    }
-  };
-
-  const isRegistrationComplete = (callback?: () => void) => {
-    if (!isEmpty(user)) {
-      if (Number(user?.tier) < 1) {
-        navigate('BankDetails');
-        return;
-      }
-      if (isEmpty(user?.email) || isNil(user?.email)) {
-        navigate('EmailDetails');
-        return;
-      }
-    }
-
-    if (callback && typeof callback === 'function') {
-      callback();
-    }
-  };
-
-  const isUserLackingTag = (callback?: () => void) => {
-    if (!isEmpty(user) && !isNil(user)) {
-      if (
-        !isEmpty(user?.email) &&
-        toInteger(user?.tier) > 0 &&
-        isEmpty(user?.userTag) &&
-        isNil(user?.userTag)
-      ) {
-        navigate('CreateTag');
-      }
-    }
-
-    if (callback && typeof callback === 'function') {
-      callback();
     }
   };
 
@@ -247,6 +231,65 @@ export function useProvideAuth() {
     setUserIsActive(true);
 
     return () => {};
+  }, []);
+
+  const handleCheckUpdate = async () => {
+    const config = JSON.parse(
+      remoteConfig().getValue(FORCE_APP_UPDATE).asString(),
+    );
+
+    const latestAppVersionStore = await VersionCheck.getLatestVersion();
+
+    const minimumAppVersion = config?.minimum_app_version;
+
+    VersionCheck.needUpdate({
+      currentVersion: VersionCheck.getCurrentVersion(),
+      latestVersion: minimumAppVersion ?? latestAppVersionStore,
+    }).then(res => {
+      if (res.isNeeded) {
+        if (Platform.OS === 'ios' && config?.ios === true) {
+          // navigate('UpdateApp', {
+          //   force_update: config?.force_update,
+          // });
+        }
+
+        if (Platform.OS === 'android' && config?.android === true) {
+          // navigate('UpdateApp', {
+          //   force_update: config?.force_update,
+          // });
+        }
+      }
+    });
+  };
+
+  useEffect(() => {
+    remoteConfig()
+      .setDefaults({
+        [FORCE_APP_UPDATE]: JSON.stringify({
+          minimum_app_version: VersionCheck.getCurrentVersion(),
+          force_update: false,
+          ios: true,
+          android: true,
+        }),
+      })
+      .then(() => {
+        if (process.env.NODE_ENV === 'development') {
+          // console.log('RNFB =====>> Default values set.');
+          handlePrintToConsole('RNFB =====>> Default values set.');
+        }
+      })
+      .then(() => remoteConfig().fetchAndActivate())
+      .then(async fetchedRemotely => {
+        await remoteConfig().fetch(300);
+        if (fetchedRemotely) {
+          await handleCheckUpdate();
+        } else {
+          handlePrintToConsole('Info', [
+            'No configs were fetched from the backend, and the local configs were already activated',
+          ]);
+        }
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -292,8 +335,6 @@ export function useProvideAuth() {
       handleSetUser,
       saveFetchedUser,
       isFetchingUser,
-      isRegistrationComplete,
-      isUserLackingTag,
       isBalanceMasked,
       handleSetIsBalanceMasked,
       onRefresh,

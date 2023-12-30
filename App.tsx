@@ -10,6 +10,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RouteProp} from '@react-navigation/core';
 import {ToastProvider} from 'react-native-toast-notifications';
 import analytics from '@react-native-firebase/analytics';
+import crashlytics from '@react-native-firebase/crashlytics';
 import {
   Platform,
   StatusBar,
@@ -32,7 +33,7 @@ import useCustomNavigator, {
 
 import StyleGuide from './app/assets/style-guide';
 import {useAuth} from './app/context';
-// import {initializeFB} from './app/services/notifications';
+import {initializeFB} from './app/services/notifications';
 
 import {handlePrintToConsole} from './app/utils';
 import {RootStackParamList} from './app/types';
@@ -179,8 +180,9 @@ const App: React.FC<RootStackParamList> = () => {
   }, []);
 
   useEffect(() => {
-    // initializeFB();
+    initializeFB();
     analytics().logAppOpen();
+    crashlytics().log('App mounted.');
   }, []);
 
   useEffect(() => {
@@ -241,6 +243,8 @@ const App: React.FC<RootStackParamList> = () => {
             screen_name: currentRouteName,
             screen_class: currentRouteName,
           });
+
+          // await analytics().setCurrentScreen(currentRouteName);
         }
         //@ts-ignore
         routeNameRef.current = currentRouteName;

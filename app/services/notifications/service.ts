@@ -1,96 +1,104 @@
-// import {Platform, PermissionsAndroid} from 'react-native';
-// import firebase from '@react-native-firebase/app';
-// // import '@react-native-firebase/messaging';
-// import PushNotification from 'react-native-push-notification';
-// import PushNotificationIOS from '@react-native-community/push-notification-ios';
-// import messaging, {
-//   FirebaseMessagingTypes,
-// } from '@react-native-firebase/messaging';
+import {Platform, PermissionsAndroid} from 'react-native';
+import firebase from '@react-native-firebase/app';
+// import '@react-native-firebase/messaging';
+import PushNotification from 'react-native-push-notification';
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
+import messaging, {
+  FirebaseMessagingTypes,
+} from '@react-native-firebase/messaging';
+import inAppMessaging from '@react-native-firebase/in-app-messaging';
 
-// import {saveFcmToken} from '../../contexts/User';
-// import {handlePrintToConsole} from '../../utils';
+import {saveFcmToken} from '../../context/User';
+import {handlePrintToConsole} from '../../utils';
 
-// if (Platform.OS === 'android') {
-//   PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
-// }
+if (Platform.OS === 'android') {
+  PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+}
 
-// const uuidv4 = () => {
-//   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-//     // eslint-disable-next-line no-bitwise
-//     var r = (Math.random() * 16) | 0,
-//       // eslint-disable-next-line no-bitwise
-//       v = c === 'x' ? r : (r & 0x3) | 0x8;
-//     return v.toString(16);
-//   });
-// };
+async function bootstrap() {
+  await inAppMessaging().setMessagesDisplaySuppressed(true);
+}
 
-// export const initializeFB = () => {
-//   const getToken = async () => {
-//     try {
-//       const token = await firebase.messaging().getToken();
+const uuidv4 = () => {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    // eslint-disable-next-line no-bitwise
+    var r = (Math.random() * 16) | 0,
+      // eslint-disable-next-line no-bitwise
+      v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+};
 
-//       await saveFcmToken({token});
-//     } catch (error: any) {
-//       console.log(' initializeFB -> getToken =======>> ', error);
-//     }
-//   };
+export const initializeFB = () => {
+  const getToken = async () => {
+    try {
+      const token = await firebase.messaging().getToken();
 
-//   const registerForRemoteMessages = async () => {
-//     try {
-//       await firebase.messaging();
-//       await requestPermissions();
-//     } catch (error) {
-//       console.log('error firebase message ======>> ', error);
-//     }
-//   };
+      await saveFcmToken({token});
+    } catch (error: any) {
+      //   console.log(' initializeFB -> getToken =======>> ', error);
+      handlePrintToConsole('initializeFB -> getToken =======>> ', error);
+    }
+  };
 
-//   const requestPermissions = () => {
-//     firebase
-//       .messaging()
-//       .requestPermission()
-//       .then((status: FirebaseMessagingTypes.AuthorizationStatus) => {
-//         const enabled =
-//           status === messaging.AuthorizationStatus.AUTHORIZED ||
-//           status === messaging.AuthorizationStatus.PROVISIONAL;
+  const registerForRemoteMessages = async () => {
+    try {
+      await firebase.messaging();
+      await requestPermissions();
+    } catch (error) {
+      // console.log('error firebase message ======>> ', error);
+      handlePrintToConsole('error firebase message ======>> ', error);
+    }
+  };
 
-//         if (enabled) {
-//           onMessage();
-//           handlePrintToConsole('Authorization status:', status);
-//         }
-//       })
-//       .catch(e => console.log(e));
-//   };
+  const requestPermissions = () => {
+    firebase
+      .messaging()
+      .requestPermission()
+      .then((status: FirebaseMessagingTypes.AuthorizationStatus) => {
+        const enabled =
+          status === messaging.AuthorizationStatus.AUTHORIZED ||
+          status === messaging.AuthorizationStatus.PROVISIONAL;
 
-//   const onMessage = () => {
-//     firebase.messaging().onMessage(response => {
-//       showNotification(response?.notification);
-//     });
-//   };
+        if (enabled) {
+          onMessage();
+          handlePrintToConsole('Authorization status:', status);
+        }
+      })
+      .catch(e => console.log(e));
+  };
 
-//   const showNotification = (notification: any) => {
-//     if (Platform.OS === 'android') {
-//       PushNotification.localNotification({
-//         id: uuidv4(),
-//         channelId: 'moniee-app-notification',
-//         title: notification?.title ?? 'New notification',
-//         message: notification?.body! ?? '',
-//       });
-//     } else {
-//       PushNotificationIOS.addNotificationRequest({
-//         id: uuidv4(),
-//         title: notification?.title ?? 'New notification',
-//         body: notification?.body! ?? '',
-//       });
-//     }
-//   };
+  const onMessage = () => {
+    firebase.messaging().onMessage(response => {
+      showNotification(response?.notification);
+    });
+  };
 
-//   getToken();
+  const showNotification = (notification: any) => {
+    if (Platform.OS === 'android') {
+      PushNotification.localNotification({
+        id: uuidv4(),
+        channelId: 'moniee-app-notification',
+        title: notification?.title ?? 'New notification',
+        message: notification?.body! ?? '',
+      });
+    } else {
+      PushNotificationIOS.addNotificationRequest({
+        id: uuidv4(),
+        title: notification?.title ?? 'New notification',
+        body: notification?.body! ?? '',
+      });
+    }
+  };
 
-//   if (Platform.OS === 'ios') {
-//     registerForRemoteMessages();
-//   } else {
-//     onMessage();
-//   }
-// };
+  getToken();
+  bootstrap();
 
-export {};
+  if (Platform.OS === 'ios') {
+    registerForRemoteMessages();
+  } else {
+    onMessage();
+  }
+};
+
+// export {};

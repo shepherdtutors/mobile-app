@@ -141,7 +141,7 @@ const styles: GenericStylesProp = StyleSheet.create({
   coreText: {
     fontSize: StyleGuide.Typography[14],
     fontWeight: '500',
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
   },
   smallCoreText: {
     fontSize: StyleGuide.Typography[12],

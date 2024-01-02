@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     lineHeight: scaledSize(23),
     color: StyleGuide.Colors.primary,
     fontWeight: '700',
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
   },
   subHeader: {
     fontSize: StyleGuide.Typography[14],

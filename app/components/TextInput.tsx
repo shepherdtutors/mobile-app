@@ -333,12 +333,12 @@ const styles: GenericStylesProp = StyleSheet.create({
   inputWrapper: {flexDirection: 'row'},
   inputContainer: {
     color: StyleGuide.Colors.black,
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
     flex: 1,
     position: 'relative',
   },
   input: {
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
     flex: 1,
     fontSize: StyleGuide.Typography[12],
     color: StyleGuide.Colors.primary,
@@ -346,7 +346,7 @@ const styles: GenericStylesProp = StyleSheet.create({
   },
 
   countryText: {
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
     fontSize: StyleGuide.Typography[12],
     lineHeight: scaledSize(17),
     color: StyleGuide.Colors.shades.grey[100],
@@ -380,7 +380,7 @@ const styles: GenericStylesProp = StyleSheet.create({
     color: StyleGuide.Colors.shades.red[100],
     fontSize: StyleGuide.Typography[10],
     marginVertical: scaledSize(6),
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
   },
 
   successInput: {
@@ -397,7 +397,6 @@ const styles: GenericStylesProp = StyleSheet.create({
     left: scaledSize(0),
     right: scaledSize(0),
     flex: 1,
-    // left: scaledSize(4),
     width: '105%',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -414,7 +413,6 @@ const styles: GenericStylesProp = StyleSheet.create({
     fontSize: scaledSize(14),
     lineHeight: scaledSize(20),
     color: StyleGuide.Colors.shades.blue[1400],
-    // ...padding(0, 0),
   },
   splitBackLabelText: {
     fontSize: scaledSize(12),
@@ -427,7 +425,7 @@ const styles: GenericStylesProp = StyleSheet.create({
     left: scaledSize(4),
     fontSize: scaledSize(12),
     lineHeight: scaledSize(16),
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
     fontWeight: Platform.OS === 'ios' ? 400 : 600,
     color: StyleGuide.Colors.primary,
     backgroundColor: StyleGuide.Colors.white,
@@ -435,7 +433,7 @@ const styles: GenericStylesProp = StyleSheet.create({
   },
 
   smallText: {
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
     fontWeight: '500',
     fontSize: scaledSize(12),
     lineHeight: scaledSize(16),

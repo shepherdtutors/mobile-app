@@ -72,3 +72,5 @@ yarn-error.log
 sentry.*
 GoogleService-Info.plist
 google-services.json
+
+.eslintcache 

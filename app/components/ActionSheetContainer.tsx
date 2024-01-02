@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     color: StyleGuide.Colors.shades.magenta[25],
     fontSize: scaledSize(12),
     lineHeight: scaledSize(17),
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
     fontWeight: '600',
   },
   actionSheetContainer: {},
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     color: StyleGuide.Colors.primary,
     textAlign: 'center',
-    fontFamily: 'DMSans-Bold',
+    fontFamily: 'Inter-Bold',
   },
   bottomMargin: {
     marginBottom: 32,

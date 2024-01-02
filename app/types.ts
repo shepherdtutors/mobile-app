@@ -368,7 +368,10 @@ export type MainNavParamList = {
 
 export type RootStackParamList = {
   WelcomeScreen: undefined;
+  ReactDemoScreen: undefined;
   TabScreens: undefined;
+  Register: undefined;
+  Login: undefined;
   Dashboard: undefined;
   DashboardTab: undefined;
   UpdateApp: {

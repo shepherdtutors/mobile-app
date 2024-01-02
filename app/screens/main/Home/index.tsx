@@ -25,6 +25,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Button from '../../../components/Button';
+import TextInput from '../../../components/TextInput';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -72,6 +75,9 @@ function App(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+
+        <Button onPress={() => {}}>Test</Button>
+        <TextInput />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

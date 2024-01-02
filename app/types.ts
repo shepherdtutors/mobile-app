@@ -371,6 +371,7 @@ export type RootStackParamList = {
   TabScreens: undefined;
   Dashboard: undefined;
   DashboardTab: undefined;
+  PreviewScreen: undefined;
   UpdateApp: {
     force_update: boolean;
   };

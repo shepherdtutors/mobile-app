@@ -5,22 +5,18 @@ import {useNavigation} from '@react-navigation/native';
 type Props = {};
 type ReturnType = {
   ref: React.RefObject<any>;
-  handleRouteToRegister: () => void;
-  handleRouteToForgotPassword: () => void;
+  handleRouteToLogin: () => void;
 };
 
 function useLogic({}: Props = {}): ReturnType {
   const navigation = useNavigation();
   const ref = useRef<ViewComponent>();
 
-  const handleRouteToRegister = () => navigation.navigate('Register');
-  const handleRouteToForgotPassword = () =>
-    navigation.navigate('ForgotPassword');
+  const handleRouteToLogin = () => navigation.navigate('Login');
 
   return {
     ref,
-    handleRouteToRegister,
-    handleRouteToForgotPassword,
+    handleRouteToLogin,
   };
 }
 

@@ -372,6 +372,8 @@ export type RootStackParamList = {
   TabScreens: undefined;
   Register: undefined;
   Login: undefined;
+  ConfirmPassword: undefined;
+  ForgotPassword: undefined;
   Dashboard: undefined;
   DashboardTab: undefined;
   UpdateApp: {

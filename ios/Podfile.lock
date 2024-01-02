@@ -623,6 +623,8 @@ PODS:
     - React-Core
     - React-hermes
     - Sentry/HybridSDK (= 8.17.1)
+  - RNSVG (14.1.0):
+    - React-Core
   - Sentry/HybridSDK (8.17.1):
     - SentryPrivate (= 8.17.1)
   - SentryPrivate (8.17.1)
@@ -685,6 +687,7 @@ DEPENDENCIES:
   - "RNFBRemoteConfig (from `../node_modules/@react-native-firebase/remote-config`)"
   - RNScreens (from `../node_modules/react-native-screens`)
   - "RNSentry (from `../node_modules/@sentry/react-native`)"
+  - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -825,6 +828,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNSentry:
     :path: "../node_modules/@sentry/react-native"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -906,6 +911,7 @@ SPEC CHECKSUMS:
   RNFBRemoteConfig: dc5418251c49d2f40edfd76cc935d2c36b8331b0
   RNScreens: 1c2444658fbb696a094272d946708167b1f63409
   RNSentry: b7f4f53bb7076f119558f8898fca901b48213f12
+  RNSVG: ba3e7232f45e34b7b47e74472386cf4e1a676d0a
   Sentry: d9f99f9cc13777c5d938650c1e1c85047bb4f0d1
   SentryPrivate: 839b1e58addf58624087a80b2628e543193fa8ef
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17

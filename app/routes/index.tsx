@@ -3,7 +3,7 @@ import {isEmpty, isNil} from 'lodash';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import NoAuthScreensNavigator from './noAuthScreenNavigtor';
-import MainScreensNavigator from './MainScreenNavigator';
+import MainScreensNavigator from './mainScreenNavigator';
 import {useAuth} from '../context';
 
 const RootStackNavigtor = memo(() => {

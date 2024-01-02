@@ -100,6 +100,9 @@ export const globalStyles: {[key: string]: any} = StyleSheet.create({
   'text-right': {
     textAlign: 'right',
   },
+  'text-justify': {
+    textAlign: 'justify',
+  },
   'text-uppercase': {
     textTransform: 'uppercase',
   },
@@ -152,16 +155,19 @@ export const globalStyles: {[key: string]: any} = StyleSheet.create({
     fontWeight: 'bold',
   },
   'text-300': {
-    fontFamily: 'Roboto-Light',
+    fontFamily: 'Inter-Light',
   },
   'text-400': {
-    fontFamily: 'Roboto-Regular',
+    fontFamily: 'Inter-Regular',
   },
   'text-500': {
-    fontFamily: 'Roboto-Medium',
+    fontFamily: 'Inter-Medium',
+  },
+  'text-600': {
+    fontFamily: 'Inter-SemiBold',
   },
   'text-700': {
-    fontFamily: 'Roboto-Bold',
+    fontFamily: 'Inter-Bold',
   },
   'body-300': {
     fontFamily: 'Rubik-Light',
@@ -179,19 +185,19 @@ export const globalStyles: {[key: string]: any} = StyleSheet.create({
     fontFamily: 'Rubik-Black',
   },
   'heading-100': {
-    fontFamily: 'CocogoosePro-Thin',
+    fontFamily: 'Satoshi-Thin',
   },
   'heading-300': {
-    fontFamily: 'CocogoosePro-UltraLight',
+    fontFamily: 'Satoshi-UltraLight',
   },
   'heading-400': {
-    fontFamily: 'CocogoosePro-Light',
+    fontFamily: 'Satoshi-Light',
   },
   'heading-500': {
-    fontFamily: 'CocogoosePro-SemiLight',
+    fontFamily: 'Satoshi-SemiLight',
   },
   'heading-700': {
-    fontFamily: 'CocogoosePro-Regular',
+    fontFamily: 'Satoshi-Regular',
   },
   'print-text-400': {
     fontFamily: 'VT323-Regular',

@@ -14,14 +14,14 @@ import useLogic from './index.logic';
 
 // assets
 import Logo from '../../../assets/images/svgs/shepherd-logo.svg';
-import Google from '../../../assets/images/svgs/shepherd-google-logo.svg';
+// import Google from '../../../assets/images/svgs/shepherd-google-logo.svg';
 import {applyStyles} from '../../../assets/styles';
 import StyleGuide from '../../../assets/style-guide';
 
 import {scaleHeight} from '../../../utils';
 
-const Register: React.FC<ScreenProps<'Register'>> = ({}) => {
-  const {ref, handleRouteToLogin, handleRouteToConfirmPassword} = useLogic();
+const ForgotPassword: React.FC<ScreenProps<'ForgotPassword'>> = ({}) => {
+  const {ref, handleRouteToLogin} = useLogic();
   return (
     <Layout>
       <ScrollView
@@ -46,6 +46,7 @@ const Register: React.FC<ScreenProps<'Register'>> = ({}) => {
               </View>
             </View>
           </View>
+
           {/* Header */}
           <View style={applyStyles('w-full mb-8')}>
             <View style={applyStyles('w-full')}>
@@ -55,7 +56,7 @@ const Register: React.FC<ScreenProps<'Register'>> = ({}) => {
                   style={applyStyles(
                     'text-2xl text-shades-gray-1000 text-600',
                   )}>
-                  Create your account
+                  Forgot password
                 </Text>
               </View>
             </View>
@@ -70,83 +71,50 @@ const Register: React.FC<ScreenProps<'Register'>> = ({}) => {
                   style={applyStyles(
                     'text-sm text-shades-gray-1050 text-400 text-center',
                   )}>
-                  Hi there, before you proceed, let us know who is signing up
+                  Enter the email you registered with, we will send you a link
+                  to create a new password
                 </Text>
               </View>
             </View>
           </View>
 
           {/* Inputs */}
-          <View style={applyStyles('my-24 pt-4')}>
+          <View style={applyStyles('mt-24 pt-4')}>
             <View style={applyStyles('w-full')}>
               <View style={applyStyles('w-full')}>
-                {/* First Name */}
+                {/* Email */}
                 <View style={applyStyles('w-full')}>
                   <ShepherdTextInput
-                    label={'First Name'}
+                    label={'Email'}
                     placeholderTextColor={StyleGuide.Colors.shades.gray[100]}
                     showLabel
-                    placeholder={'Enter your First Name'}
+                    placeholder={'Enter your email'}
+                    secureTextEntry
                   />
                 </View>
               </View>
-              <View style={applyStyles('my-12')} />
-              {/* Last Name */}
-              <View style={applyStyles('w-full')}>
-                <ShepherdTextInput
-                  label={'Last Name'}
-                  showLabel
-                  placeholderTextColor={StyleGuide.Colors.shades.gray[100]}
-                  placeholder={'Enter your Last Name'}
-                />
-              </View>
-            </View>
-            <View style={applyStyles('my-12')} />
-            {/* Email */}
-            <View style={applyStyles('w-full')}>
-              <ShepherdTextInput
-                label={'Email'}
-                showLabel
-                placeholderTextColor={StyleGuide.Colors.shades.gray[100]}
-                placeholder={'Enter your email'}
-              />
             </View>
           </View>
 
           {/* Button */}
           <View style={applyStyles('flex-1 mb-16')}>
-            <View style={applyStyles('w-full')}>
-              <View style={applyStyles('w-full')}>
-                <View style={applyStyles('w-full mb-16')}>
-                  <ShepherdButton onPress={handleRouteToConfirmPassword}>
-                    Create Account
-                  </ShepherdButton>
-                </View>
-                <View style={applyStyles('w-full')}>
-                  <ShepherdButton mode="secondary" onPress={() => {}}>
-                    <View
-                      style={applyStyles(
-                        'flex justify-center items-center w-full flex-row',
-                      )}>
-                      <View style={applyStyles('mr-8')}>
-                        <SvgXml
-                          width={14}
-                          height={14}
-                          xml={Google as unknown as string}
-                        />
-                      </View>
-                      <Text
-                        style={applyStyles('text-400 text-shades-gray-1100')}>
-                        Continue with Google
-                      </Text>
-                    </View>
+            <View style={applyStyles('h-full w-full')}>
+              <View style={applyStyles('h-full w-full')}>
+                <View
+                  style={applyStyles(
+                    'h-full w-full flex flex-col justify-center items-center',
+                  )}>
+                  <ShepherdButton
+                    customStyle={applyStyles('w-full')}
+                    onPress={() => {}}>
+                    Confirm
                   </ShepherdButton>
                 </View>
               </View>
             </View>
           </View>
 
-          {/* Login */}
+          {/* Button */}
           <View style={applyStyles('flex-1')}>
             <View style={applyStyles('w-full h-full')}>
               <View
@@ -156,14 +124,14 @@ const Register: React.FC<ScreenProps<'Register'>> = ({}) => {
                 <View style={applyStyles('')}>
                   <View style={applyStyles('')}>
                     <Text style={applyStyles('text-shades-gray-1050')}>
-                      Already have an account?
+                      Remember your password?
                     </Text>
                   </View>
                 </View>
                 <TouchableOpacity
                   onPress={handleRouteToLogin}
                   style={applyStyles('mx-4')}>
-                  <View style={applyStyles('mx-1')}>
+                  <View style={applyStyles('')}>
                     <Text style={applyStyles('text-primary')}>Log in</Text>
                   </View>
                 </TouchableOpacity>
@@ -176,4 +144,4 @@ const Register: React.FC<ScreenProps<'Register'>> = ({}) => {
   );
 };
 
-export default Register;
+export default ForgotPassword;

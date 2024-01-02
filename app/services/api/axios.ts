@@ -3,8 +3,9 @@ import {UPLOAD_API_BASE_URL, API_BASE_URL} from '@env';
 
 // import Config from 'react-native-config';
 import EncryptedStorage from 'react-native-encrypted-storage';
-// import perf from '@react-native-firebase/perf';
+import perf from '@react-native-firebase/perf';
 import {isEmpty, isNil} from 'lodash';
+import {handlePrintToConsole} from '../../utils';
 
 let baseURL = API_BASE_URL;
 let uploadBaseURL = UPLOAD_API_BASE_URL;
@@ -38,10 +39,10 @@ API.interceptors.request.use(async function (config: any) {
       };
     }
 
-    // const httpMetric = perf().newHttpMetric(config.url, config.method);
-    // config.metadata = {httpMetric};
+    const httpMetric = perf().newHttpMetric(config.url, config.method);
+    config.metadata = {httpMetric};
 
-    // await httpMetric.start();
+    await httpMetric.start();
   } finally {
     return config;
   }
@@ -72,8 +73,11 @@ API.interceptors.response.use(
     } finally {
       if (error.response.status === 401) {
       }
-      console.log('axios ----->> error.message ======>>', error?.message);
-      console.log(
+      handlePrintToConsole(
+        'axios ----->> error.message ======>>',
+        error?.message,
+      );
+      handlePrintToConsole(
         'axios ----->> error.response.message======>>',
         error?.response?.message,
       );

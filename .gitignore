@@ -68,3 +68,7 @@ yarn-error.log
 .env
 .env.*
 !.env.example
+
+sentry.*
+GoogleService-Info.plist
+google-services.json

@@ -26,6 +26,9 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import SlideScreen from '../SlideScreen';
 
+import Button from '../../../components/Button';
+import TextInput from '../../../components/TextInput';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;

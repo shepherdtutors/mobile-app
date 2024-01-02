@@ -4,6 +4,10 @@ const { getDefaultConfig, mergeConfig } = require("@react-native/metro-config");
 const defaultConfig = getDefaultConfig(__dirname);
 const { resolver: { sourceExts, assetExts } } = defaultConfig;
 
+const {
+ createSentryMetroSerializer
+} = require("@sentry/react-native/dist/js/tools/sentryMetroSerializer");
+
 /**
  * Metro configuration
  * https://facebook.github.io/metro/docs/configuration
@@ -19,6 +23,9 @@ const config = {
     sourceExts: [...sourceExts, "svg"],
     resolverMainFields: ["sbmodern", "react-native", "browser", "main"],
   },
+  serializer: {
+    customSerializer: createSentryMetroSerializer()
+   },
   watchFolders: [path.resolve(__dirname, "../")],
 };
 

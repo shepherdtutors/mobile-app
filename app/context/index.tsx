@@ -1,5 +1,6 @@
 import React from 'react';
 import {AuthProvider} from './Auth';
+import {UserProvider} from './User';
 export {default as useAuth, useProvideAuth} from './Auth';
 
 // import {MenuProvider} from 'react-native-popup-menu';
@@ -16,9 +17,11 @@ export default function ({
     <>
       {/* <MenuProvider> */}
       <AuthProvider>
-        {/* <MixPanelEventProvider> */}
-        {children}
-        {/* </MixPanelEventProvider> */}
+        <UserProvider>
+          {/* <MixPanelEventProvider> */}
+          {children}
+          {/* </MixPanelEventProvider> */}
+        </UserProvider>
       </AuthProvider>
       {/* </MenuProvider> */}
     </>

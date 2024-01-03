@@ -32,7 +32,8 @@ type ButtonProps = {
     | 'phantom'
     | 'dotted'
     | 'delete'
-    | 'register';
+    | 'register'
+    | 'shepherdBlue';
   customStyle?: any;
   textColor?: string;
   isLoading?: boolean;

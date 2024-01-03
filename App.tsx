@@ -41,6 +41,7 @@ import {RootStackParamList} from './app/types';
 import {applyStyles} from './app/assets/styles';
 
 import RootStackNavigtor from './app/routes';
+import SplashScreen from './app/splashScreen';
 import {scaledSize} from './app/assets/style-guide/typography';
 // import {SquaremeCustomToast} from './app/components/SquaremeCustomToast';
 import * as Sentry from '@sentry/react-native';
@@ -101,12 +102,12 @@ const App: React.FC<RootStackParamList> = () => {
         linkingSubscription.remove();
       };
     },
-    getPathFromState(state, config) {
+    getPathFromState(state: any, config: any) {
       const path = getPathFromState(state, config);
 
       return path;
     },
-    getStateFromPath: (path, options) => {
+    getStateFromPath: (path: any, options: any) => {
       const routeState = getStateFromPath(path, options);
       return routeState;
     },
@@ -216,9 +217,9 @@ const App: React.FC<RootStackParamList> = () => {
     },
   ];
 
-  // if (splash) {
-  //   return <Splash />;
-  // }
+  if (splash) {
+    return <SplashScreen />;
+  }
 
   return (
     <NavigationContainer

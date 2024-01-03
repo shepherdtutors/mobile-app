@@ -1,8 +1,9 @@
 export default {
-  primary: '#000A4A',
+  primary: '#207DF7',
   secondary: '',
   black: '#000',
   white: '#FFFFFF',
+  shepherdBlue: '#207DF7',
 
   shades: {
     grey: {
@@ -102,6 +103,7 @@ export default {
       1450: '#F2F8FF',
       1500: '#222B45',
       1550: '#E2F9FE',
+      1600: '#207DF7',
     },
     orange: {
       100: '#E1854A',

@@ -1,10 +1,21 @@
-import React, {useState, useEffect} from 'react';
-import {SafeAreaView, StatusBar, Text, View} from 'react-native';
-import LearningAssistant from './learningAssistant';
+import React, {useState, useEffect, useCallback} from 'react';
+import {StatusBar, View} from 'react-native';
+import PreviewScreen from '../Home/PreviewScreen';
 
-const SlideScreen = () => {
+const HomeScreen = () => {
   const slideLines = ['Item 1', 'Item 2', 'Item 3'];
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const getStatusBarColor = useCallback(() => {
+    switch (currentIndex) {
+      case 1:
+        return '#5C7CFF';
+      case 2:
+        return '#FC9C69';
+      default:
+        return '#4E98F9';
+    }
+  }, [currentIndex]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -14,16 +25,6 @@ const SlideScreen = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const getStatusBarColor = () => {
-    switch (currentIndex) {
-      case 1:
-        return '#5C7CFF'; // Start color of first gradient
-      case 2:
-        return '#FC9C69'; // Start color of second gradient
-      default:
-        return '#4E98F9'; // Default color
-    }
-  };
   return (
     <View>
       <StatusBar
@@ -32,7 +33,7 @@ const SlideScreen = () => {
       />
 
       {currentIndex === 0 && (
-        <LearningAssistant
+        <PreviewScreen
           currentIndex={currentIndex}
           title="LEARNING ASSISTANT"
           subTitle="Access multiple AI tools for learning"
@@ -40,7 +41,7 @@ const SlideScreen = () => {
         />
       )}
       {currentIndex === 1 && (
-        <LearningAssistant
+        <PreviewScreen
           currentIndex={currentIndex}
           title="FLASHCARDS"
           subTitle="Retain information better and easier"
@@ -48,7 +49,7 @@ const SlideScreen = () => {
         />
       )}
       {currentIndex === 2 && (
-        <LearningAssistant
+        <PreviewScreen
           currentIndex={currentIndex}
           title="BARNS"
           subTitle="Learn better with like minded colleagues"
@@ -59,4 +60,4 @@ const SlideScreen = () => {
   );
 };
 
-export default SlideScreen;
+export default HomeScreen;

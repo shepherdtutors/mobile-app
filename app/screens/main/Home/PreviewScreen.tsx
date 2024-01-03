@@ -1,9 +1,20 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, StatusBar} from 'react-native';
+import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {horizontalScale} from '../../helper/scale';
+import Button from '../../../components/Button';
+import {useNavigation} from '@react-navigation/native';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../../types';
 
-const LearningAssistant = ({
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+export type NavigationType = NativeStackScreenProps<
+  RootStackParamList,
+  'HomeScreen'
+>;
+
+const PreviewScreen = ({
   title,
   subTitle,
   imageSource,
@@ -15,6 +26,8 @@ const LearningAssistant = ({
   currentIndex: number;
 }) => {
   const slideLines = ['Item 1', 'Item 2', 'Item 3'];
+  const navigation: any = useNavigation<NavigationType>();
+
   const renderBackground = () => {
     const slideIndicator = (
       <View
@@ -85,8 +98,36 @@ const LearningAssistant = ({
 
   return (
     <View style={styles.container}>
-      {renderBackground()}
-      <Image source={imageSource as any} style={styles.image} />
+      <View
+        style={{
+          height: windowHeight * 0.75,
+        }}>
+        {renderBackground()}
+        <Image source={imageSource as any} style={styles.image} />
+      </View>
+      <View
+        style={{
+          backgroundColor: 'white',
+          height: windowHeight * 0.25,
+          paddingTop: 20,
+          paddingBottom: 20,
+          paddingLeft: 25,
+          paddingRight: 25,
+        }}>
+        <Button
+          title="Get Started"
+          onPress={() => navigation.navigate('SignUp')}
+        />
+        <Button
+          customStyle={{
+            marginTop: 20,
+            borderRadius: 8,
+          }}
+          title="Login"
+          mode="transparent"
+          onPress={() => navigation.navigate('Login')}
+        />
+      </View>
     </View>
   );
 };
@@ -113,7 +154,7 @@ const renderContent = (
 
 const styles = StyleSheet.create({
   container: {
-    height: horizontalScale(545),
+    flex: 1,
   },
   content: {
     flex: 1,
@@ -140,13 +181,13 @@ const styles = StyleSheet.create({
   },
   image: {
     position: 'absolute',
-    bottom: -76,
-    height: '70%',
-    width: '100%',
+    bottom: 0,
+    width: windowWidth,
+    height: windowHeight * 0.4,
+    resizeMode: 'stretch',
   },
   fullSize: {
     flex: 1,
-    minHeight: 700,
   },
   defaultBackground: {
     flex: 1,
@@ -154,4 +195,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LearningAssistant;
+export default PreviewScreen;

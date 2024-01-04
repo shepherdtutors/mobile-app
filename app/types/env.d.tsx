@@ -16,4 +16,10 @@ declare module '@env' {
   export const FORCE_APP_UPDATE: string;
 
   export const UPLOAD_API_BASE_URL: string;
+
+  export const RESEND_RESET_PASSWORD_TIME: string;
+
+  export const SECONDS: string;
+
+  export const RESEND_RESET_PASSWORD_TITLE: string;
 }

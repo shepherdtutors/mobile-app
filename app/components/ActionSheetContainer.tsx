@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     right: scaledSize(0),
   },
   actionSheetCancelText: {
-    color: StyleGuide.Colors.shades.magenta[25],
+    color: StyleGuide.Colors.shades.magenta[50],
     fontSize: scaledSize(12),
     lineHeight: scaledSize(17),
     fontFamily: 'Inter-Regular',

@@ -42,7 +42,7 @@ type ShepherdTextInputProps = {
   ref?: React.RefObject<any>;
   value?: string;
   name?: string;
-  error?: string;
+  error?: any;
   touched?: boolean;
   showError?: boolean;
   showCountryCodePicker?: boolean;
@@ -306,10 +306,6 @@ const ShepherdTextInput: React.FC<ShepherdTextInputProps> = forwardRef(
               returnKeyType={returnKeyType}
               value={value}
               secureTextEntry={secureTextEntry}
-              // placeholderStyle={[
-              //   styles.inputPlaceholder,
-              //   // customStyleTextInputPlaceholder,
-              // ]}
               {...props}
             />
 
@@ -369,7 +365,6 @@ const styles: GenericStylesProp = StyleSheet.create({
   },
 
   smallBox: {
-    // padding: scaledSize(12),
     marginRight: scaledSize(10),
     flexDirection: 'row',
     alignItems: 'center',
@@ -380,7 +375,6 @@ const styles: GenericStylesProp = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    // paddingVertical: Platform.OS === 'ios' ? scaledSize(18) : scaledSize(18),
   },
 
   inputBox: {
@@ -402,7 +396,6 @@ const styles: GenericStylesProp = StyleSheet.create({
 
   successInput: {
     borderColor: StyleGuide.Colors.primary,
-    // borderColor: StyleGuide.Colors.shades.gray[1500],
   },
 
   errorInput: {

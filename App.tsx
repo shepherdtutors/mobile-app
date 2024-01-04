@@ -29,6 +29,8 @@ import useCustomNavigator, {
   navigationRef,
 } from './app/hooks/useCustomNavigator';
 
+// Components
+import ShepherdCustomToast from './app/components/CustomToast';
 // Screens
 import Splash from './app/screens/auth/Splash';
 
@@ -43,7 +45,6 @@ import {applyStyles} from './app/assets/styles';
 
 import RootStackNavigtor from './app/routes';
 import {scaledSize} from './app/assets/style-guide/typography';
-// import {SquaremeCustomToast} from './app/components/SquaremeCustomToast';
 
 Sentry.init({
   dsn: SHEPHERD_SENTRY_DSN,
@@ -261,20 +262,14 @@ const App: React.FC<RootStackParamList> = () => {
         normalColor={StyleGuide.Colors.shades.gray[300]}
         textStyle={styles.toastFontSize}
         style={{elevation: 10}}
-        renderType={
-          {
-            // custom_toast: toast => <SquaremeCustomToast toast={toast} />,
-            // custom_error_toast: toast => (
-            //   <SquaremeCustomToast toast={toast} variant="error" />
-            // ),
-            // custom_success_toast: toast => (
-            //   <SquaremeCustomToast toast={toast} variant="success" />
-            // ),
-            // custom_attention_toast: toast => (
-            //   <SquaremeCustomToast toast={toast} variant="warning" />
-            // ),
-          }
-        }
+        renderType={{
+          custom_error_toast: toast => (
+            <ShepherdCustomToast toast={toast} variant="error" />
+          ),
+          custom_success_toast: toast => (
+            <ShepherdCustomToast toast={toast} variant="success" />
+          ),
+        }}
         swipeEnabled={true}>
         {/* <UserInactivity
           isActive={userIsActive}

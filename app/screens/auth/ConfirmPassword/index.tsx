@@ -14,14 +14,22 @@ import useLogic from './index.logic';
 
 // assets
 import Logo from '../../../assets/images/svgs/shepherd-logo.svg';
-// import Google from '../../../assets/images/svgs/shepherd-google-logo.svg';
 import {applyStyles} from '../../../assets/styles';
 import StyleGuide from '../../../assets/style-guide';
 
 import {scaleHeight} from '../../../utils';
+import Icon from '../../../components/Icon';
 
 const ConfirmPassword: React.FC<ScreenProps<'ConfirmPassword'>> = ({}) => {
-  const {ref, handleRouteToLogin} = useLogic();
+  const {
+    ref,
+    handleRouteToLogin,
+    isVisible,
+    toggleVisiblity,
+    isVisibleConfirmPassword,
+    toggleVisiblityConfirmPassword,
+    reset_password,
+  } = useLogic();
   return (
     <Layout>
       <ScrollView
@@ -89,20 +97,58 @@ const ConfirmPassword: React.FC<ScreenProps<'ConfirmPassword'>> = ({}) => {
                     placeholderTextColor={StyleGuide.Colors.shades.gray[100]}
                     showLabel
                     placeholder={'Enter password'}
-                    secureTextEntry
+                    secureTextEntry={isVisible}
+                    append={
+                      isVisible ? (
+                        <Icon
+                          type={'material-community-icons'}
+                          name={'eye'}
+                          size={16}
+                          onPress={toggleVisiblity}
+                          color={StyleGuide.Colors.shades.gray[1250]}
+                        />
+                      ) : (
+                        <Icon
+                          type={'material-community-icons'}
+                          name={'eye-off'}
+                          size={16}
+                          onPress={toggleVisiblity}
+                          color={StyleGuide.Colors.shades.gray[1250]}
+                        />
+                      )
+                    }
                   />
                 </View>
 
-                <View style={applyStyles('my-8')} />
+                <View style={applyStyles('my-12')} />
 
                 {/* Confirm Password */}
-                <View style={applyStyles('w-full')}>
+                <View style={applyStyles('w-full mb-32')}>
                   <ShepherdTextInput
                     label={'Confirm Password'}
                     showLabel
                     placeholderTextColor={StyleGuide.Colors.shades.gray[100]}
                     placeholder={'Re-enter password'}
-                    secureTextEntry
+                    secureTextEntry={isVisibleConfirmPassword}
+                    append={
+                      isVisibleConfirmPassword ? (
+                        <Icon
+                          type={'material-community-icons'}
+                          name={'eye'}
+                          size={16}
+                          onPress={toggleVisiblityConfirmPassword}
+                          color={StyleGuide.Colors.shades.gray[1250]}
+                        />
+                      ) : (
+                        <Icon
+                          type={'material-community-icons'}
+                          name={'eye-off'}
+                          size={16}
+                          onPress={toggleVisiblityConfirmPassword}
+                          color={StyleGuide.Colors.shades.gray[1250]}
+                        />
+                      )
+                    }
                   />
                 </View>
               </View>
@@ -132,7 +178,9 @@ const ConfirmPassword: React.FC<ScreenProps<'ConfirmPassword'>> = ({}) => {
                 <View style={applyStyles('')}>
                   <View style={applyStyles('')}>
                     <Text style={applyStyles('text-shades-gray-1050')}>
-                      Already have an account?
+                      {reset_password
+                        ? 'Remember your old password?'
+                        : 'Already have an account?'}
                     </Text>
                   </View>
                 </View>
@@ -140,7 +188,9 @@ const ConfirmPassword: React.FC<ScreenProps<'ConfirmPassword'>> = ({}) => {
                   onPress={handleRouteToLogin}
                   style={applyStyles('mx-4')}>
                   <View style={applyStyles('')}>
-                    <Text style={applyStyles('text-primary')}>Log in</Text>
+                    <Text style={applyStyles('text-primary')}>
+                      {reset_password ? 'Sign in now' : 'Log in'}
+                    </Text>
                   </View>
                 </TouchableOpacity>
               </View>

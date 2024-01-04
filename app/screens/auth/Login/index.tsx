@@ -19,9 +19,17 @@ import {applyStyles} from '../../../assets/styles';
 import StyleGuide from '../../../assets/style-guide';
 
 import {scaleHeight} from '../../../utils';
+import Icon from '../../../components/Icon';
 
 const Login: React.FC<ScreenProps<'Login'>> = ({}) => {
-  const {ref, handleRouteToRegister, handleRouteToForgotPassword} = useLogic();
+  const {
+    ref,
+    handleRouteToRegister,
+    handleRouteToForgotPassword,
+    isVisible,
+    toggleVisiblity,
+  } = useLogic();
+
   return (
     <Layout>
       <ScrollView
@@ -67,12 +75,14 @@ const Login: React.FC<ScreenProps<'Login'>> = ({}) => {
             <View style={applyStyles('w-full')}>
               <View
                 style={applyStyles('w-full flex justify-center items-center')}>
-                <Text
-                  style={applyStyles(
-                    'text-sm text-shades-gray-1050 text-400 text-center',
-                  )}>
-                  Provide your details to sign in to your Shepherd account
-                </Text>
+                <View style={applyStyles('w-4/5')}>
+                  <Text
+                    style={applyStyles(
+                      'text-sm text-shades-gray-1050 text-400 text-center',
+                    )}>
+                    Provide your details to sign in to your Shepherd account
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -99,7 +109,26 @@ const Login: React.FC<ScreenProps<'Login'>> = ({}) => {
                     showLabel
                     placeholderTextColor={StyleGuide.Colors.shades.gray[100]}
                     placeholder={'Enter your email'}
-                    secureTextEntry
+                    secureTextEntry={isVisible}
+                    append={
+                      isVisible ? (
+                        <Icon
+                          type={'material-community-icons'}
+                          name={'eye'}
+                          size={16}
+                          onPress={toggleVisiblity}
+                          color={StyleGuide.Colors.shades.gray[1250]}
+                        />
+                      ) : (
+                        <Icon
+                          type={'material-community-icons'}
+                          name={'eye-off'}
+                          size={16}
+                          onPress={toggleVisiblity}
+                          color={StyleGuide.Colors.shades.gray[1250]}
+                        />
+                      )
+                    }
                   />
                 </View>
               </View>

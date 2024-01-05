@@ -11,6 +11,7 @@ import {RouteProp} from '@react-navigation/core';
 import {ToastProvider} from 'react-native-toast-notifications';
 import analytics from '@react-native-firebase/analytics';
 import crashlytics from '@react-native-firebase/crashlytics';
+import * as Sentry from '@sentry/react-native';
 import {
   Platform,
   StatusBar,
@@ -28,8 +29,10 @@ import useCustomNavigator, {
   navigationRef,
 } from './app/hooks/useCustomNavigator';
 
+// Components
+import ShepherdCustomToast from './app/components/CustomToast';
 // Screens
-// import Splash from './app/screens/auth/Splash';
+import Splash from './app/screens/auth/Splash';
 
 import StyleGuide from './app/assets/style-guide';
 import {useAuth} from './app/context';
@@ -42,8 +45,6 @@ import {applyStyles} from './app/assets/styles';
 
 import RootStackNavigtor from './app/routes';
 import {scaledSize} from './app/assets/style-guide/typography';
-// import {SquaremeCustomToast} from './app/components/SquaremeCustomToast';
-import * as Sentry from '@sentry/react-native';
 
 Sentry.init({
   dsn: SHEPHERD_SENTRY_DSN,
@@ -198,7 +199,7 @@ const App: React.FC<RootStackParamList> = () => {
         ...DefaultTheme.colors,
         primary: 'rgb(255, 45, 85)',
         secondary: '#0984E3',
-        iconNotActive: StyleGuide.Colors.shades.grey[1450],
+        iconNotActive: StyleGuide.Colors.shades.gray[1450],
         iconActive: '#ffffff',
         backgroundColor: StyleGuide.Colors.shades.magenta[50],
       },
@@ -216,9 +217,9 @@ const App: React.FC<RootStackParamList> = () => {
     },
   ];
 
-  // if (splash) {
-  //   return <Splash />;
-  // }
+  if (splash) {
+    return <Splash />;
+  }
 
   return (
     <NavigationContainer
@@ -258,23 +259,17 @@ const App: React.FC<RootStackParamList> = () => {
         successColor={StyleGuide.Colors.shades.green[200]}
         dangerColor={StyleGuide.Colors.shades.red[300]}
         warningColor={StyleGuide.Colors.shades.orange[200]}
-        normalColor={StyleGuide.Colors.shades.grey[300]}
+        normalColor={StyleGuide.Colors.shades.gray[300]}
         textStyle={styles.toastFontSize}
         style={{elevation: 10}}
-        renderType={
-          {
-            // custom_toast: toast => <SquaremeCustomToast toast={toast} />,
-            // custom_error_toast: toast => (
-            //   <SquaremeCustomToast toast={toast} variant="error" />
-            // ),
-            // custom_success_toast: toast => (
-            //   <SquaremeCustomToast toast={toast} variant="success" />
-            // ),
-            // custom_attention_toast: toast => (
-            //   <SquaremeCustomToast toast={toast} variant="warning" />
-            // ),
-          }
-        }
+        renderType={{
+          custom_error_toast: toast => (
+            <ShepherdCustomToast toast={toast} variant="error" />
+          ),
+          custom_success_toast: toast => (
+            <ShepherdCustomToast toast={toast} variant="success" />
+          ),
+        }}
         swipeEnabled={true}>
         {/* <UserInactivity
           isActive={userIsActive}

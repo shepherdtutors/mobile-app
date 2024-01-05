@@ -26,7 +26,7 @@ type ButtonProps = {
     | 'neutral'
     | 'ghost'
     | 'error'
-    | 'grey'
+    | 'gray'
     | 'transparent'
     | 'pale'
     | 'phantom'
@@ -139,9 +139,12 @@ const styles: GenericStylesProp = StyleSheet.create({
     justifyContent: 'center',
   },
   coreText: {
-    fontSize: StyleGuide.Typography[14],
+    fontSize: 14,
     fontWeight: '500',
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
+    fontStyle: 'normal',
+    lineHeight: 20,
+    letterSpacing: -0.014,
   },
   smallCoreText: {
     fontSize: StyleGuide.Typography[12],
@@ -159,10 +162,10 @@ const styles: GenericStylesProp = StyleSheet.create({
     color: StyleGuide.Colors.white,
   },
   secondaryContainer: {
-    backgroundColor: StyleGuide.Colors.shades.magenta[75],
+    backgroundColor: StyleGuide.Colors.shades.gray[1200],
   },
   secondaryText: {
-    color: StyleGuide.Colors.white,
+    color: StyleGuide.Colors.shades.gray[1100],
   },
   errorContainer: {
     backgroundColor: StyleGuide.Colors.white,
@@ -177,20 +180,20 @@ const styles: GenericStylesProp = StyleSheet.create({
     color: StyleGuide.Colors.white,
   },
   disabledContainer: {
-    backgroundColor: StyleGuide.Colors.shades.grey[1000],
+    backgroundColor: StyleGuide.Colors.shades.gray[1000],
   },
   disabledText: {
     color: StyleGuide.Colors.white,
   },
   neutralContainer: {
-    backgroundColor: StyleGuide.Colors.shades.grey[30],
+    backgroundColor: StyleGuide.Colors.shades.gray[50],
   },
   neutralText: {
     color: StyleGuide.Colors.black,
   },
   ghostContainer: {
     backgroundColor: 'transparent',
-    borderColor: StyleGuide.Colors.shades.grey[1100],
+    borderColor: StyleGuide.Colors.shades.gray[100],
     borderWidth: 1,
   },
   ghostText: {
@@ -212,7 +215,7 @@ const styles: GenericStylesProp = StyleSheet.create({
   },
 
   dottedContainer: {
-    borderColor: StyleGuide.Colors.shades.grey[1100],
+    borderColor: StyleGuide.Colors.shades.gray[100],
     backgroundColor: StyleGuide.Colors.white,
     borderWidth: scaledSize(1),
     borderStyle: 'dotted',
@@ -222,7 +225,7 @@ const styles: GenericStylesProp = StyleSheet.create({
   },
   transparentContainer: {
     backgroundColor: StyleGuide.Colors.white,
-    borderColor: StyleGuide.Colors.shades.grey[350],
+    borderColor: StyleGuide.Colors.shades.gray[300],
     borderWidth: scaledSize(1),
     borderRadius: scaledSize(20),
   },

@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import {Alert, Platform} from 'react-native';
 import EncryptedStorage from 'react-native-encrypted-storage';
-import {isEqual, isEmpty, isNil, defaultTo} from 'lodash';
+import {isEqual, isEmpty, isNil, defaultTo, toInteger} from 'lodash';
 import analytics from '@react-native-firebase/analytics';
 import crashlytics from '@react-native-firebase/crashlytics';
 import inAppMessaging from '@react-native-firebase/in-app-messaging';
@@ -17,7 +17,13 @@ import remoteConfig from '@react-native-firebase/remote-config';
 import VersionCheck from 'react-native-version-check';
 import useCustomNavigator from '../../hooks/useCustomNavigator';
 
-import {SHEPHERD_ONESIGNAL_LOGGEDIN_TRIGGER, FORCE_APP_UPDATE} from '@env';
+import {
+  SHEPHERD_ONESIGNAL_LOGGEDIN_TRIGGER,
+  FORCE_APP_UPDATE,
+  RESEND_RESET_PASSWORD_TITLE,
+  RESEND_RESET_PASSWORD_TIME,
+  SECONDS,
+} from '@env';
 
 import {handlePrintToConsole} from '../../utils';
 
@@ -43,9 +49,10 @@ export type User = {
 
 export function useProvideAuth() {
   const defaultAppAnalytics = analytics();
-
   const {navigate} = useCustomNavigator();
+
   const [ready] = useState(true);
+  const [resendResetPasswordTime, setResendResetPasswordTime] = useState(1);
   const [userToken, setUserToken] = useState<null | string>(null);
   const [chosenTheme, setChosenTheme] = useState(0);
   const [user, setUser] = useState<User | null>(null);
@@ -262,6 +269,19 @@ export function useProvideAuth() {
     });
   };
 
+  const handleFetchResetPasswordEmailConfig = async () => {
+    const config = await remoteConfig()
+      .getValue(RESEND_RESET_PASSWORD_TITLE)
+      .asString();
+
+    const resendResetPasswordTimeConfig =
+      toInteger(config) ?? toInteger(RESEND_RESET_PASSWORD_TIME);
+
+    setResendResetPasswordTime(
+      resendResetPasswordTimeConfig * toInteger(SECONDS),
+    );
+  };
+
   useEffect(() => {
     remoteConfig()
       .setDefaults({
@@ -271,10 +291,10 @@ export function useProvideAuth() {
           ios: true,
           android: true,
         }),
+        [RESEND_RESET_PASSWORD_TITLE]: toInteger(RESEND_RESET_PASSWORD_TIME),
       })
       .then(() => {
         if (process.env.NODE_ENV === 'development') {
-          // console.log('RNFB =====>> Default values set.');
           handlePrintToConsole('RNFB =====>> Default values set.');
         }
       })
@@ -283,6 +303,7 @@ export function useProvideAuth() {
         await remoteConfig().fetch(300);
         if (fetchedRemotely) {
           await handleCheckUpdate();
+          await handleFetchResetPasswordEmailConfig();
         } else {
           handlePrintToConsole('Info', [
             'No configs were fetched from the backend, and the local configs were already activated',
@@ -342,6 +363,7 @@ export function useProvideAuth() {
       userIsActive,
       handleSetUserIsActive,
       showAlert,
+      resendResetPasswordTime,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [
@@ -354,6 +376,7 @@ export function useProvideAuth() {
       showAlert,
       signOut,
       showAlert,
+      resendResetPasswordTime,
     ],
   );
 }

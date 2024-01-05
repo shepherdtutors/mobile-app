@@ -1,25 +1,13 @@
-import React, {
-  memo,
-  // useEffect
-} from 'react';
+import React, {memo} from 'react';
 import {isEmpty, isNil} from 'lodash';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-// import {EVENTACTION} from '../types';
-// import useMixPanelEvent from '../hooks/useMixpanelEvent';
-
 import NoAuthScreensNavigator from './noAuthScreenNavigtor';
-import MainScreensNavigator from './MainScreenNavigator';
+import MainScreensNavigator from './mainScreenNavigator';
 import {useAuth} from '../context';
 
 const RootStackNavigtor = memo(() => {
   const {userToken: token} = useAuth();
-  // const {fireEvent} = useMixPanelEvent();
-
-  //Mixpanel track users
-  // useEffect(() => {
-  //   fireEvent(EVENTACTION.initialize_app, false, 'inittialize_app');
-  // }, [user, fireEvent]);
 
   const RootStack = createNativeStackNavigator();
 

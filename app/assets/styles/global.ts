@@ -45,9 +45,6 @@ export const globalStyles: {[key: string]: any} = StyleSheet.create({
   'items-end': {
     alignItems: 'flex-end',
   },
-  'flex-wrap': {
-    flexWrap: 'wrap',
-  },
   'self-start': {
     alignSelf: 'flex-start',
   },
@@ -61,8 +58,32 @@ export const globalStyles: {[key: string]: any} = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  'flex-wrap': {
+    flexWrap: 'wrap',
+  },
+  'flex-wrap-reverse': {
+    flexWrap: 'wrap-reverse',
+  },
+  'flex-nowrap': {
+    flexWrap: 'nowrap',
+  },
+  'flex-0': {
+    flex: 0,
+  },
   'flex-1': {
     flex: 1,
+  },
+  'grow-0': {
+    flexGrow: 0,
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  'shrink-0': {
+    flexShrink: 0,
+  },
+  shrink: {
+    flexShrink: 1,
   },
   relative: {
     position: 'relative',
@@ -73,23 +94,106 @@ export const globalStyles: {[key: string]: any} = StyleSheet.create({
   'w-full': {
     width: '100%',
   },
+
+  // one-half
   'w-1/2': {
     width: '50%',
   },
+  // one-third
+  'w-1/3': {
+    width: '33.333333%',
+  },
+  'w-2/3': {
+    width: '66.666667%',
+  },
+  // one-fourth
+  'w-1/4': {width: '25%'},
+  'w-2/4': {width: '50%'},
+  'w-3/4': {width: '75%'},
+
+  // one-fifth
+  'w-1/5': {width: '20%'},
+  'w-2/5': {width: '40%'},
+  'w-3/5': {width: '60%'},
+  'w-4/5': {width: '80%'},
+
+  // one-sixth
+  'w-1/6': {width: '16.666667%'},
+  'w-2/6': {width: '33.333333%'},
+  'w-3/6': {width: '50%'},
+  'w-4/6': {width: '66.666667%'},
+  'w-5/6': {width: '83.333333%'},
+
+  // one-twelfth
+  'w-1/12': {width: '25%'},
+  'w-2/12': {width: '50%'},
+  'w-3/12': {width: '75%'},
+  'w-4/12': {width: '20%'},
+  'w-5/12': {width: '40%'},
+  'w-6/12': {width: '60%'},
+  'w-7/12': {width: '80%'},
+  'w-8/12': {width: '16.666667%'},
+  'w-9/12': {width: '33.333333%'},
+  'w-10/12': {width: '50%'},
+  'w-11/12': {width: '66.666667%'},
+
+  // one-hundred
   'w-screen': {
     width: dimensions.fullWidth,
   },
+  'w-auto': {
+    width: 'auto',
+  },
+
   'h-full': {
     height: '100%',
   },
+
+  // one-half
+  'h-1/2': {
+    height: '50%',
+  },
+  // one-third
+  'h-1/3': {
+    height: '33.333333%',
+  },
+  'h-2/3': {
+    height: '66.666667%',
+  },
+  // one-fourth
+  'h-1/4': {height: '25%'},
+  'h-2/4': {height: '50%'},
+  'h-3/4': {height: '75%'},
+
+  // one-fifth
+  'h-1/5': {height: '20%'},
+  'h-2/5': {height: '40%'},
+  'h-3/5': {height: '60%'},
+  'h-4/5': {height: '80%'},
+
+  // one-sixth
+  'h-1/6': {height: '16.666667%'},
+  'h-2/6': {height: '33.333333%'},
+  'h-3/6': {height: '50%'},
+  'h-4/6': {height: '66.666667%'},
+  'h-5/6': {height: '83.333333%'},
+
+  // one-twelfth
+  'h-1/12': {height: '25%'},
+  'h-2/12': {height: '50%'},
+  'h-3/12': {height: '75%'},
+  'h-4/12': {height: '20%'},
+  'h-5/12': {height: '40%'},
+  'h-6/12': {height: '60%'},
+  'h-7/12': {height: '80%'},
+  'h-8/12': {height: '16.666667%'},
+  'h-9/12': {height: '33.333333%'},
+  'h-10/12': {height: '50%'},
+  'h-11/12': {height: '66.666667%'},
+
+  // one-hundred
   'h-screen': {
     height: dimensions.fullHeight,
-  },
-  'h-3/10': {
-    height: '30%',
-  },
-  'h-7/10': {
-    height: '70%',
   },
   'text-center': {
     textAlign: 'center',
@@ -99,6 +203,9 @@ export const globalStyles: {[key: string]: any} = StyleSheet.create({
   },
   'text-right': {
     textAlign: 'right',
+  },
+  'text-justify': {
+    textAlign: 'justify',
   },
   'text-uppercase': {
     textTransform: 'uppercase',
@@ -152,16 +259,19 @@ export const globalStyles: {[key: string]: any} = StyleSheet.create({
     fontWeight: 'bold',
   },
   'text-300': {
-    fontFamily: 'Roboto-Light',
+    fontFamily: 'Inter-Light',
   },
   'text-400': {
-    fontFamily: 'Roboto-Regular',
+    fontFamily: 'Inter-Regular',
   },
   'text-500': {
-    fontFamily: 'Roboto-Medium',
+    fontFamily: 'Inter-Medium',
+  },
+  'text-600': {
+    fontFamily: 'Inter-SemiBold',
   },
   'text-700': {
-    fontFamily: 'Roboto-Bold',
+    fontFamily: 'Inter-Bold',
   },
   'body-300': {
     fontFamily: 'Rubik-Light',
@@ -179,28 +289,25 @@ export const globalStyles: {[key: string]: any} = StyleSheet.create({
     fontFamily: 'Rubik-Black',
   },
   'heading-100': {
-    fontFamily: 'CocogoosePro-Thin',
+    fontFamily: 'Satoshi-Thin',
   },
   'heading-300': {
-    fontFamily: 'CocogoosePro-UltraLight',
+    fontFamily: 'Satoshi-UltraLight',
   },
   'heading-400': {
-    fontFamily: 'CocogoosePro-Light',
+    fontFamily: 'Satoshi-Light',
   },
   'heading-500': {
-    fontFamily: 'CocogoosePro-SemiLight',
+    fontFamily: 'Satoshi-SemiLight',
   },
   'heading-700': {
-    fontFamily: 'CocogoosePro-Regular',
+    fontFamily: 'Satoshi-Regular',
   },
   'print-text-400': {
     fontFamily: 'VT323-Regular',
   },
   'overflow-hidden': {
     overflow: 'hidden',
-  },
-  'w-auto': {
-    width: 'auto',
   },
   'opacity-0': {
     opacity: 0,
@@ -282,5 +389,32 @@ export const globalStyles: {[key: string]: any} = StyleSheet.create({
   }, {}),
   uppercase: {
     textTransform: 'uppercase',
+  },
+  lowercase: {
+    textTransform: 'lowercase',
+  },
+  capitalize: {
+    textTransform: 'capitalize',
+  },
+  'normal-case': {
+    textTransform: 'none',
+  },
+  'z-0': {
+    zIndex: 0,
+  },
+  'z-10': {
+    zIndex: 0,
+  },
+  'z-20': {
+    zIndex: 20,
+  },
+  'z-30': {
+    zIndex: 30,
+  },
+  'z-40': {
+    zIndex: 40,
+  },
+  'z-50': {
+    zIndex: 50,
   },
 });

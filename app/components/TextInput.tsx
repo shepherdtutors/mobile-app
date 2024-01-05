@@ -20,6 +20,7 @@ import StyleGuide from '../assets/style-guide';
 import {GenericStylesProp} from './StackedText';
 import {scaledSize, padding} from '../assets/style-guide/typography';
 import {Country} from '../types';
+import {scaleHeight} from '../utils';
 
 type ShepherdTextInputProps = {
   onPress?: () => void;
@@ -41,7 +42,7 @@ type ShepherdTextInputProps = {
   ref?: React.RefObject<any>;
   value?: string;
   name?: string;
-  error?: string;
+  error?: any;
   touched?: boolean;
   showError?: boolean;
   showCountryCodePicker?: boolean;
@@ -97,6 +98,7 @@ type ShepherdTextInputProps = {
     | 'route'
     | 'yahoo';
   onSubmitEditing?: (evt: NativeEventEmitter) => void;
+  secureTextEntry?: boolean;
 };
 
 const ShepherdTextInput: React.FC<ShepherdTextInputProps> = forwardRef(
@@ -133,6 +135,7 @@ const ShepherdTextInput: React.FC<ShepherdTextInputProps> = forwardRef(
       autoCapitalize = 'none',
       showIntegratedLabelPlaceHolder = false,
       returnKeyType = 'done',
+      secureTextEntry = false,
       ...props
     },
     ref,
@@ -185,7 +188,7 @@ const ShepherdTextInput: React.FC<ShepherdTextInputProps> = forwardRef(
               <MaterialIcons
                 name="expand-more"
                 size={14}
-                color={StyleGuide.Colors.shades.grey[100]}
+                color={StyleGuide.Colors.shades.gray[100]}
               />
             </TouchableOpacity>
             // </View>
@@ -301,8 +304,9 @@ const ShepherdTextInput: React.FC<ShepherdTextInputProps> = forwardRef(
                 }
               }}
               returnKeyType={returnKeyType}
-              {...props}
               value={value}
+              secureTextEntry={secureTextEntry}
+              {...props}
             />
 
             {append && <View>{append}</View>}
@@ -327,33 +331,40 @@ export default ShepherdTextInput;
 const styles: GenericStylesProp = StyleSheet.create({
   touchableWrapper: {
     flex: 1,
-    marginBottom: scaledSize(20),
+    marginBottom: scaledSize(8),
   },
   mainWrapper: {},
   inputWrapper: {flexDirection: 'row'},
   inputContainer: {
     color: StyleGuide.Colors.black,
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
     flex: 1,
     position: 'relative',
   },
   input: {
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
     flex: 1,
     fontSize: StyleGuide.Typography[12],
-    color: StyleGuide.Colors.primary,
+    color: StyleGuide.Colors.shades.gray[1000],
     lineHeight: scaledSize(17),
+  },
+
+  inputPlaceholder: {
+    fontFamily: 'Inter-Regular',
+    fontSize: scaledSize(14),
+    fontStyle: 'normal',
+    fontWeight: '400',
+    lineHeight: scaledSize(20),
   },
 
   countryText: {
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
     fontSize: StyleGuide.Typography[12],
     lineHeight: scaledSize(17),
-    color: StyleGuide.Colors.shades.grey[100],
+    color: StyleGuide.Colors.shades.gray[100],
   },
 
   smallBox: {
-    // padding: scaledSize(12),
     marginRight: scaledSize(10),
     flexDirection: 'row',
     alignItems: 'center',
@@ -364,28 +375,27 @@ const styles: GenericStylesProp = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingVertical: Platform.OS === 'ios' ? scaledSize(16) : 0,
   },
 
   inputBox: {
     backgroundColor: StyleGuide.Colors.white,
-    borderRadius: scaledSize(10),
+    borderRadius: scaledSize(6),
     paddingHorizontal: scaledSize(10),
     marginVertical: scaledSize(5),
-    borderColor: StyleGuide.Colors.shades.grey[1500],
+    borderColor: StyleGuide.Colors.shades.gray[1150],
     borderWidth: Platform.OS === 'ios' ? scaledSize(0.5) : scaledSize(1),
+    height: scaleHeight(48),
   },
 
   errorMsgText: {
     color: StyleGuide.Colors.shades.red[100],
     fontSize: StyleGuide.Typography[10],
     marginVertical: scaledSize(6),
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
   },
 
   successInput: {
     borderColor: StyleGuide.Colors.primary,
-    // borderColor: StyleGuide.Colors.shades.grey[1500],
   },
 
   errorInput: {
@@ -397,7 +407,6 @@ const styles: GenericStylesProp = StyleSheet.create({
     left: scaledSize(0),
     right: scaledSize(0),
     flex: 1,
-    // left: scaledSize(4),
     width: '105%',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -413,33 +422,32 @@ const styles: GenericStylesProp = StyleSheet.create({
     left: scaledSize(0),
     fontSize: scaledSize(14),
     lineHeight: scaledSize(20),
-    color: StyleGuide.Colors.shades.blue[1400],
-    // ...padding(0, 0),
+    color: StyleGuide.Colors.shades.blue[400],
   },
   splitBackLabelText: {
     fontSize: scaledSize(12),
     lineHeight: scaledSize(16),
-    color: StyleGuide.Colors.shades.grey[1800],
+    color: StyleGuide.Colors.shades.gray[800],
   },
   labelText: {
     position: 'absolute',
     top: scaledSize(-24),
     left: scaledSize(4),
-    fontSize: scaledSize(12),
-    lineHeight: scaledSize(16),
-    fontFamily: 'DMSans-Regular',
-    fontWeight: Platform.OS === 'ios' ? 400 : 600,
-    color: StyleGuide.Colors.primary,
+    fontSize: scaledSize(14),
+    lineHeight: scaledSize(20),
+    fontFamily: 'Inter-Regular',
+    fontWeight: Platform.OS === 'ios' ? 500 : 500,
+    color: StyleGuide.Colors.shades.gray[1100],
     backgroundColor: StyleGuide.Colors.white,
     ...padding(0, 5),
   },
 
   smallText: {
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Inter-Regular',
     fontWeight: '500',
     fontSize: scaledSize(12),
     lineHeight: scaledSize(16),
-    color: StyleGuide.Colors.shades.grey[1800],
+    color: StyleGuide.Colors.shades.gray[1100],
   },
 
   floatingLabelStyle: {

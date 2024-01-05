@@ -4,11 +4,11 @@ import ActionSheet, {
   ActionSheetProps,
   ActionSheetRef,
   useScrollHandlers,
-  DraggableNodeOptions,
 } from 'react-native-actions-sheet';
 import {scaledSize} from '../assets/style-guide/typography';
-import {scaleWidth} from '../utils';
+import {scaleHeight, scaleWidth} from '../utils';
 import {toString} from 'lodash';
+import StyleGuide from '../assets/style-guide';
 
 type Props = {
   children: React.ReactNode;
@@ -27,10 +27,10 @@ const MonieeActionSheet = ({
   onOpen,
   containerStyle,
   indicatorStyle,
-  scrollId = toString(Math.random()),
+  // scrollId = toString(Math.random()),
   ...props
 }: Props) => {
-  const scrollHandlers = useScrollHandlers<ScrollView>(scrollId, refObj);
+  // const scrollHandlers = useScrollHandlers<ScrollView>(scrollId, refObj);
 
   return (
     <ActionSheet
@@ -41,7 +41,8 @@ const MonieeActionSheet = ({
       indicatorStyle={{...styles.indicatorStyle, ...indicatorStyle}}
       ref={refObj}
       {...props}>
-      <ScrollView {...scrollHandlers}>{children}</ScrollView>
+      {/* <ScrollView {...scrollHandlers}>{children}</ScrollView> */}
+      <ScrollView>{children}</ScrollView>
     </ActionSheet>
   );
 };
@@ -53,7 +54,9 @@ const styles = StyleSheet.create({
     paddingTop: scaledSize(12),
   },
   indicatorStyle: {
-    width: scaleWidth(100),
+    width: scaleWidth(40),
+    height: scaleHeight(4),
+    backgroundColor: StyleGuide.Colors.shades.gray[1300],
   },
 });
 
